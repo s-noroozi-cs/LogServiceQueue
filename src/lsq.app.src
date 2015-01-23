@@ -1,0 +1,28 @@
+%%-*- mode: erlang -*-
+{application, lsq,
+ [
+  {description, "log web service to queue"},
+  {vsn, "1"},
+  {modules, []},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib,
+                  inets,
+                  crypto,
+                  mochiweb,
+                  webmachine
+                 ]},
+  {mod, { lsq_app, []}},
+  {env, [
+      %% listining ip,port config
+      {web_ip, "0.0.0.0"},
+      {web_port, 8090},
+
+      %% rabbitMQ config
+      {rmq_host, "127.0.0.1"},
+      {rmq_port, 5672},
+      {rmq_user, "guest"},
+      {rmq_pass, "guest"}
+  ]}
+ ]}.
