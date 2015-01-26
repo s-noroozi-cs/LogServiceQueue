@@ -13,6 +13,7 @@
                   mochiweb,
                   webmachine
                  ]},
+  {included_applications, [pooler]},
   {mod, { lsq_app, []}},
   {env, [
       %% listining ip,port config
@@ -22,7 +23,7 @@
       %% rabbitMQ config
       {rmq_host, "127.0.0.1"},
       {rmq_port, 5672},
-      {rmq_user, "guest"},
-      {rmq_pass, "guest"}
+      {rmq_user, <<"guest">>},
+      {rmq_pass, <<"guest">>}
   ]}
  ]}.
