@@ -16,5 +16,6 @@ init([]) ->
     Web = {webmachine_mochiweb,
            {webmachine_mochiweb, start, [lsq_config:web_config()]},
            permanent, 5000, worker, [mochiweb_socket_server]},
-    Processes = [Web],
+    LogSrv = {logserver,{logserver,start,[]},permanent,5000,worker,[]},
+    Processes = [Web,LogSrv],
     {ok, { {one_for_one, 10, 10}, Processes} }.
